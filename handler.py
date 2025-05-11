@@ -3,7 +3,7 @@ import base64
 
 import torch
 from diffusers import (
-    StableDiffusionXLPipeline,
+    FluxPipeline,
     StableDiffusionXLImg2ImgPipeline,
     AutoencoderKL,
 )
@@ -40,8 +40,8 @@ class ModelHandler:
             local_files_only=True,
         )
         # Load Base Pipeline from cache using identifier
-        base_pipe = StableDiffusionXLPipeline.from_pretrained(
-            "stabilityai/stable-diffusion-xl-base-1.0",
+        base_pipe = FluxPipeline.from_pretrained(
+            "black-forest-labs/FLUX.1-dev",
             vae=vae,
             torch_dtype=torch.float16,
             variant="fp16",
